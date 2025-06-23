@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Daftar MandarKarya - Buat akun untuk belanja tenun otentik dan pesan wisata budaya">
+    <meta name="keywords" content="daftar MandarKarya, registrasi akun, tenun Mandar, wisata Sulawesi Barat">
+    <meta name="author" content="MandarKarya">
+    <meta name="robots" content="noindex, nofollow">
+    <meta property="og:title" content="Daftar MandarKarya">
+    <meta property="og:description" content="Buat akun baru di MandarKarya untuk pengalaman belanja dan wisata yang personal">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
+    <meta property="og:url" content="http://www.mandarkarya.id/daftar">
+    <title>Daftar MandarKarya</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #F8F1E9;
+            scroll-behavior: smooth;
+        }
+        .mandar-pattern {
+            background-image: url('https://www.toptal.com/designers/subtlepatterns/patterns/moroccan-flower.png');
+            background-size: 100px;
+            opacity: 0.1;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        .mandar-border {
+            border: 2px solid transparent;
+            border-image: linear-gradient(45deg, #1A3A6A, #800000, #FFD700) 1;
+        }
+        .register-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .register-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        }
+        .cta-button {
+            transition: all 0.3s ease;
+        }
+        .cta-button:hover {
+            background-color: #FFD700;
+            color: #1A3A6A;
+            transform: scale(1.05);
+        }
+        .mobile-menu {
+            transition: transform 0.3s ease;
+        }
+        .mobile-menu.hidden {
+            transform: translateX(100%);
+        }
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .input-error {
+            border-color: #e3342f;
+        }
+        .error-message {
+            color: #e3342f;
+            font-size: 0.875rem;
+        }
+        .social-icon {
+            transition: transform 0.3s ease;
+        }
+        .social-icon:hover {
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body class="relative">
+    <div class="mandar-pattern"></div>
+
+    <!-- Header -->
+    <header class="bg-[#1A3A6A] text-white py-4 px-6 sticky top-0 z-50 shadow-lg mandar-border">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="logo1.png" alt="Logo MandarKarya" class="h-12 rounded-full">
+                <span class="ml-3 text-2xl font-bold">MandarKarya</span>
+            </div>
+            <nav class="hidden md:flex space-x-6" aria-label="Navigasi utama">
+                <a href="index.html" class="hover:text-[#FFD700] transition-colors">Beranda</a>
+                <a href="toko.html" class="hover:text-[#FFD700] transition-colors">Toko</a>
+                <a href="wisata.html" class="hover:text-[#FFD700] transition-colors">Wisata</a>
+                <a href="tentang.html" class="hover:text-[#FFD700] transition-colors">Tentang</a>
+                <a href="blog.html" class="hover:text-[#FFD700] transition-colors">Blog</a>
+                <a href="#login" class="hover:text-[#FFD700] transition-colors font-bold">Login</a>
+            </nav>
+            <button id="mobile-menu-toggle" class="md:hidden focus:outline-none" aria-label="Buka menu mobile">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <nav id="mobile-menu" class="mobile-menu hidden md:hidden fixed top-0 right-0 h-full w-3/4 bg-[#1A3A6A] text-white p-6 shadow-lg" aria-label="Menu mobile">
+            <button id="mobile-menu-close" class="mb-6 focus:outline-none" aria-label="Tutup menu mobile">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <ul class="space-y-4">
+                <li><a href="index.html" class="text-lg hover:text-[#FFD700]">Beranda</a></li>
+                <li><a href="toko.html" class="text-lg hover:text-[#FFD700]">Toko</a></li>
+                <li><a href="wisata.html" class="text-lg hover:text-[#FFD700]">Wisata</a></li>
+                <li><a href="tentang.html" class="text-lg hover:text-[#FFD700]">Tentang</a></li>
+                <li><a href="blog.html" class="text-lg hover:text-[#FFD700]">Blog</a></li>
+                <li><a href="#login" class="text-lg hover:text-[#FFD700] font-bold">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Daftar Section -->
+    <section id="daftar" class="py-16 bg-[#F8F1E9] min-h-screen flex items-center justify-center">
+        <div class="container mx-auto px-6">
+            <div class="register-card bg-white rounded-lg shadow-lg p-8 max-w-md mx-auto fade-in mandar-border">
+                <h2 class="text-3xl font-bold text-[#1A3A6A] text-center mb-6">Daftar Akun Baru</h2>
+                <form id="register-form" role="form" novalidate>
+                    <div class="mb-4">
+                        <label for="name" class="block text-gray-600 font-semibold mb-2">Nama Lengkap</label>
+                        <input type="text" id="name" name="name" placeholder="Masukkan nama lengkap" class="w-full px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:border-[#1A3A6A]" aria-required="true" aria-label="Nama Lengkap">
+                        <p id="name-error" class="error-message hidden mt-1">Nama lengkap harus diisi.</p>
+                    </div>
+                    <div class="mb-4">
+                        <label for="email" class="block text-gray-600 font-semibold mb-2">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Masukkan email Anda" class="w-full px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:border-[#1A3A6A]" aria-required="true" aria-label="Email">
+                        <p id="email-error" class="error-message hidden mt-1">Email tidak valid.</p>
+                    </div>
+                    <div class="mb-4">
+                        <label for="password" class="block text-gray-600 font-semibold mb-2">Kata Sandi</label>
+                        <input type="password" id="password" name="password" placeholder="Masukkan kata sandi" class="w-full px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:border-[#1A3A6A]" aria-required="true" aria-label="Kata Sandi">
+                        <p id="password-error" class="error-message hidden mt-1">Kata sandi harus minimal 8 karakter.</p>
+                    </div>
+                    <div class="mb-6">
+                        <label for="confirm-password" class="block text-gray-600 font-semibold mb-2">Konfirmasi Kata Sandi</label>
+                        <input type="password" id="confirm-password" name="confirm-password" placeholder="Konfirmasi kata sandi" class="w-full px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:border-[#1A3A6A]" aria-required="true" aria-label="Konfirmasi Kata Sandi">
+                        <p id="confirm-password-error" class="error-message hidden mt-1">Kata sandi tidak cocok.</p>
+                    </div>
+                    <div class="flex items-center mb-6">
+                        <input type="checkbox" id="terms" class="mr-2" aria-required="true">
+                        <label for="terms" class="text-gray-600 text-sm">Saya setuju dengan <a href="#syarat-ketentuan" class="text-[#1A3A6A] hover:text-[#FFD700]">Syarat & Ketentuan</a></label>
+                    </div>
+                    <button type="submit" class="cta-button w-full bg-[#1A3A6A] text-white px-6 py-3 rounded-full font-semibold" aria-label="Daftar">Daftar</button>
+                </form>
+                <p class="text-center text-gray-600 mt-6">Sudah punya akun? <a href="login.html" class="text-[#1A3A6A] hover:text-[#FFD700] font-semibold">Masuk Sekarang</a></p>
+                <div class="mt-6 text-center">
+                    <p class="text-gray-600 mb-2">Atau daftar dengan</p>
+                    <div class="flex justify-center space-x-4">
+                        <a href="#" class="text-[#1A3A6A] hover:text-[#FFD700] social-icon" aria-label="Daftar dengan Google">
+                            <i class="fab fa-google fa-lg"></i>
+                        </a>
+                        <a href="#" class="text-[#1A3A6A] hover:text-[#FFD700] social-icon" aria-label="Daftar dengan Facebook">
+                            <i class="fab fa-facebook fa-lg"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#1A3A6A] text-white py-8 mandar-border">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">MandarKarya</h3>
+                    <p>Jelajahi budaya Mandar melalui kerajinan tenun otentik dan wisata virtual interaktif.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Kontak</h3>
+                    <p>Email: <a href="mailto:info@mandarkarya.id" class="hover:text-[#FFD700]">info@mandarkarya.id</a></p>
+                    <p>Telepon: <a href="tel:+62895333046852" class="hover:text-[#FFD700]">+62 895333046852</a></p>
+                    <p>Website: <a href="http://www.mandarkarya.id" target="_blank" class="hover:text-[#FFD700]">www.mandarkarya.id</a></p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Ikuti Kami</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="hover:text-[#FFD700] social-icon" aria-label="Instagram MandarKarya">
+                            <i class="fab fa-instagram fa-lg"></i>
+                        </a>
+                        <a href="#" class="hover:text-[#FFD700] social-icon" aria-label="TikTok MandarKarya">
+                            <i class="fab fa-tiktok fa-lg"></i>
+                        </a>
+                        <a href="#" class="hover:text-[#FFD700] social-icon" aria-label="YouTube MandarKarya">
+                            <i class="fab fa-youtube fa-lg"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <p class="text-center mt-8">© 2025 MandarKarya. Hak cipta dilindungi.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript untuk Interaktivitas -->
+    <script>
+        // Toggle Menu Mobile
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.setAttribute('aria-hidden', mobileMenu.classList.contains('hidden'));
+        });
+
+        mobileMenuClose.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            mobileMenu.setAttribute('aria-hidden', 'true');
+        });
+
+        // Validasi Formulir Daftar
+        const registerForm = document.getElementById('register-form');
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        const confirmPasswordInput = document.getElementById('confirm-password');
+        const termsInput = document.getElementById('terms');
+        const nameError = document.getElementById('name-error');
+        const emailError = document.getElementById('email-error');
+        const passwordError = document.getElementById('password-error');
+        const confirmPasswordError = document.getElementById('confirm-password-error');
+
+        registerForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            let isValid = true;
+
+            // Reset pesan error
+            nameError.classList.add('hidden');
+            emailError.classList.add('hidden');
+            passwordError.classList.add('hidden');
+            confirmPasswordError.classList.add('hidden');
+            nameInput.classList.remove('input-error');
+            emailInput.classList.remove('input-error');
+            passwordInput.classList.remove('input-error');
+            confirmPasswordInput.classList.remove('input-error');
+
+            // Validasi nama
+            const nameValue = nameInput.value.trim();
+            if (!nameValue) {
+                nameError.classList.remove('hidden');
+                nameInput.classList.add('input-error');
+                isValid = false;
+            }
+
+            // Validasi email
+            const emailValue = emailInput.value.trim();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailValue || !emailRegex.test(emailValue)) {
+                emailError.classList.remove('hidden');
+                emailInput.classList.add('input-error');
+                isValid = false;
+            }
+
+            // Validasi kata sandi
+            const passwordValue = passwordInput.value.trim();
+            if (passwordValue.length < 8) {
+                passwordError.classList.remove('hidden');
+                passwordInput.classList.add('input-error');
+                isValid = false;
+            }
+
+            // Validasi konfirmasi kata sandi
+            const confirmPasswordValue = confirmPasswordInput.value.trim();
+            if (confirmPasswordValue !== passwordValue) {
+                confirmPasswordError.classList.remove('hidden');
+                confirmPasswordInput.classList.add('input-error');
+                isValid = false;
+            }
+
+            // Validasi syarat dan ketentuan
+            if (!termsInput.checked) {
+                alert('Anda harus menyetujui Syarat & Ketentuan.');
+                isValid = false;
+            }
+
+            // Jika valid, simulasi pendaftaran
+            if (isValid) {
+                alert('Pendaftaran berhasil! (Simulasi - Integrasi backend diperlukan)');
+                // Di sini, Anda dapat mengarahkan ke halaman login atau memanggil API registrasi
+                window.location.href = 'login.html';
+            }
+        });
+
+        // Fade-in on Scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fadeIn');
+                }
+            });
+        }, { threshold: 0.2 });
+
+        fadeElements.forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

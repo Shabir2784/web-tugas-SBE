@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MandarKarya - Platform digital untuk kerajinan tenun Mandar dan wisata budaya Sulawesi Barat">
+    <meta name="keywords" content="tenun Mandar, Lipa Saqbe, wisata budaya Sulawesi, tur virtual, pakaian adat, kriya otentik">
+    <meta name="author" content="MandarKarya">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="MandarKarya - Jelajahi Budaya Mandar">
+    <meta property="og:description" content="Temukan kerajinan tenun Lipa Saqbe dan pengalaman wisata virtual Sulawesi Barat">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
+    <meta property="og:url" content="http://www.mandarkarya.id">
+    <title>MandarKarya - Jelajahi Budaya Mandar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Gaya kustom untuk estetika Mandar */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #F8F1E9; /* Krem tenun Mandar */
+            scroll-behavior: smooth;
+        }
+        .mandar-pattern {
+            background-image: url('https://www.toptal.com/designers/subtlepatterns/patterns/moroccan-flower.png');
+            background-size: 100px;
+            opacity: 0.1;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        .mandar-border {
+            border: 2px solid transparent;
+            border-image: linear-gradient(45deg, #1A3A6A, #800000, #FFD700) 1;
+        }
+        .hero-section {
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-image {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            filter: brightness(60%);
+        }
+        .product-card, .tour-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .product-card:hover, .tour-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        }
+        .cta-button {
+            transition: all 0.3s ease;
+        }
+        .cta-button:hover {
+            background-color: #FFD700;
+            color: #1A3A6A;
+            transform: scale(1.05);
+        }
+        .mobile-menu {
+            transition: transform 0.3s ease;
+        }
+        .mobile-menu.hidden {
+            transform: translateX(100%);
+        }
+        .modal {
+            transition: opacity 0.3s ease;
+        }
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Ikon sertifikasi */
+        .cert-icon::before {
+            content: '✔';
+            color: #FFD700;
+            margin-right: 4px;
+        }
+        /* Gaya ikon sosial media */
+        .social-icon {
+            transition: transform 0.3s ease;
+        }
+        .social-icon:hover {
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body class="relative">
+    <div class="mandar-pattern"></div>
+
+    <!-- Header -->
+    <header class="bg-[#1A3A6A] text-white py-4 px-6 sticky top-0 z-50 shadow-lg mandar-border">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="logo1.png" alt="Logo MandarKarya" class="h-12 rounded-full">
+                <span class="ml-3 text-2xl font-bold">MandarKarya</span>
+            </div>
+            <nav class="hidden md:flex space-x-6" aria-label="Navigasi utama">
+                <a href="#beranda" class="hover:text-[#FFD700] transition-colors">Beranda</a>
+                <a href="toko.html" class="hover:text-[#FFD700] transition-colors">Toko</a>
+                <a href="wisata.html" class="hover:text-[#FFD700] transition-colors">Wisata</a>
+                <a href="tentang.html" class="hover:text-[#FFD700] transition-colors">Tentang</a>
+                <a href="blog.html" class="hover:text-[#FFD700] transition-colors">Blog</a>
+                <a href="login.html" class="hover:text-[#FFD700] transition-colors">Login</a>
+            </nav>
+            <button id="mobile-menu-toggle" class="md:hidden focus:outline-none" aria-label="Buka menu mobile">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <nav id="mobile-menu" class="mobile-menu hidden md:hidden fixed top-0 right-0 h-full w-3/4 bg-[#1A3A6A] text-white p-6 shadow-lg" aria-label="Menu mobile">
+            <button id="mobile-menu-close" class="mb-6 focus:outline-none" aria-label="Tutup menu mobile">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <ul class="space-y-4">
+                <li><a href="index.html" class="text-lg hover:text-[#FFD700]">Beranda</a></li>
+                <li><a href="toko.html" class="text-lg hover:text-[#FFD700]">Toko</a></li>
+                <li><a href="wisata.html" class="text-lg hover:text-[#FFD700]">Wisata</a></li>
+                <li><a href="tentang.html" class="text-lg hover:text-[#FFD700]">Tentang</a></li>
+                <li><a href="blog.html" class="text-lg hover:text-[#FFD700]">Blog</a></li>
+                <li><a href="login.html" class="text-lg hover:text-[#FFD700]">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="beranda" class="hero-section h-[90vh] flex items-center justify-center text-center text-white relative">
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080&q=80" alt="Pantai Sulawesi Barat" class="hero-image" loading="lazy">
+        <div class="relative z-10 fade-in">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">Jelajahi Budaya Mandar, Belanja Otentik</h1>
+            <p class="text-lg md:text-xl mb-6 max-w-2xl mx-auto">Temukan keindahan tenun Lipa Saqbe dan pengalaman wisata virtual di Sulawesi Barat</p>
+            <div class="space-x-4">
+                <a href="#toko" class="cta-button bg-[#800000] text-white px-6 py-3 rounded-full font-semibold" role="button">Belanja Sekarang</a>
+                <a href="#wisata" class="cta-button bg-[#FFD700] text-[#1A3A6A] px-6 py-3 rounded-full font-semibold" role="button">Tur Virtual</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section id="toko" class="py-16 bg-white mandar-border">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 fade-in">Produk Unggulan</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6" itemscope itemtype="http://schema.org/Product">
+                <!-- Produk 1 -->
+                <div class="product-card bg-[#F8F1E9] rounded-lg shadow-lg overflow-hidden fade-in" itemprop="item">
+                    <img src="sarung.jpg" alt="Sarung Lipa Saqbe" class="w-full h-48 object-cover" loading="lazy" itemprop="image">
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold" itemprop="name">Sarung Lipa Saqbe</h3>
+                        <p class="text-gray-600" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                            <span itemprop="priceCurrency" content="IDR">Rp</span>
+                            <span itemprop="price" content="300000">300.000</span>
+                        </p>
+                        <p class="text-sm text-gray-500 mt-2 cert-icon">Sertifikat Otentikasi Pengrajin</p>
+                        <a href="#" class="cta-button block text-center bg-[#1A3A6A] text-white px-4 py-2 mt-4 rounded-full" role="button">Lihat Detail</a>
+                    </div>
+                </div>
+                <!-- Produk 2 -->
+                <div class="product-card bg-[#F8F1E9] rounded-lg shadow-lg overflow-hidden fade-in" itemprop="item">
+                    <img src="baju.jpg" alt="Baju Adat Mandar" class="w-full h-48 object-cover" loading="lazy" itemprop="image">
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold" itemprop="name">Baju Adat Mandar</h3>
+                        <p class="text-gray-600" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                            <span itemprop="priceCurrency" content="IDR">Rp</span>
+                            <span itemprop="price" content="1000000">1.000.000</span>
+                        </p>
+                        <p class="text-sm text-gray-500 mt-2 cert-icon">Sertifikat Otentikasi Pengrajin</p>
+                        <a href="#" class="cta-button block text-center bg-[#1A3A6A] text-white px-4 py-2 mt-4 rounded-full" role="button">Lihat Detail</a>
+                    </div>
+                </div>
+                <!-- Produk 3 -->
+                <div class="product-card bg-[#F8F1E9] rounded-lg shadow-lg overflow-hidden fade-in" itemprop="item">
+                    <img src="tastenun.jpg" alt="Tas Tenun Mandar" class="w-full h-48 object-cover" loading="lazy" itemprop="image">
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold" itemprop="name">Tas Tenun Mandar</h3>
+                        <p class="text-gray-600" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                            <span itemprop="priceCurrency" content="IDR">Rp</span>
+                            <span itemprop="price" content="150000">150.000</span>
+                        </p>
+                        <p class="text-sm text-gray-500 mt-2 cert-icon">Sertifikat Otentikasi Pengrajin</p>
+                        <a href="#" class="cta-button block text-center bg-[#1A3A6A] text-white px-4 py-2 mt-4 rounded-full" role="button">Lihat Detail</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Virtual Try-On AR -->
+    <section id="ar-tryon" class="py-16 bg-[#1A3A6A] text-white">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center fade-in">
+            <div class="md:w-1/2">
+                <img src="ar.png" alt="Pratinjau Virtual Try-On AR" class="w-full rounded-lg" loading="lazy">
+            </div>
+            <div class="md:w-1/2 md:pl-8 mt-6 md:mt-0">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Coba Pakaian Adat Secara Digital</h2>
+                <p class="mb-6">Gunakan teknologi AR untuk melihat bagaimana pakaian tenun Mandar terlihat pada Anda sebelum membeli.</p>
+                <button id="ar-modal-toggle" class="cta-button bg-[#FFD700] text-[#1A3A6A] px-6 py-3 rounded-full font-semibold" role="button">Coba Sekarang</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Virtual Try-On -->
+    <div id="ar-modal" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50" aria-hidden="true">
+        <div class="bg-white rounded-lg p-6 max-w-lg w-full relative">
+            <button id="ar-modal-close" class="absolute top-2 right-2 text-gray-600 hover:text-gray-800" aria-label="Tutup modal">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <h3 class="text-2xl font-bold mb-4">Virtual Try-On AR</h3>
+            <img src="https://images.pexels.com/photos/3775120/pexels-photo-3775120.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Simulasi AR Pakaian Adat" class="w-full rounded-lg mb-4">
+            <p class="text-gray-600 mb-4">Arahkan kamera ponsel Anda untuk mencoba pakaian adat Mandar secara digital. Fitur ini akan segera tersedia!</p>
+            <a href="#" class="cta-button block text-center bg-[#1A3A6A] text-white px-4 py-2 rounded-full">Pelajari Lebih Lanjut</a>
+        </div>
+    </div>
+
+    <!-- Virtual Tours -->
+    <section id="wisata" class="py-16 bg-white mandar-border">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 fade-in">Tur Virtual 360°</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <!-- Tur 1 -->
+                <div class="tour-card rounded-lg overflow-hidden shadow-lg fade-in">
+                    <img src="pantai.jpg" alt="Pantai Palippis" class="w-full h-48 object-cover" loading="lazy">
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold">Pantai Palippis</h3>
+                        <p class="text-gray-600">Rp50.000</p>
+                        <a href="#" class="cta-button block text-center bg-[#1A3A6A] text-white px-4 py-2 mt-4 rounded-full" role="button">Jelajahi Tur</a>
+                    </div>
+                </div>
+                <!-- Tur 2 -->
+                <div class="tour-card rounded-lg overflow-hidden shadow-lg fade-in">
+                    <img src="sandeq.jpg" alt="Sandeq Race" class="w-full h-48 object-cover" loading="lazy">
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold">Sandeq Race</h3>
+                        <p class="text-gray-600">Rp100.000</p>
+                        <a href="#" class="cta-button block text-center bg-[#1A3A6A] text-white px-4 py-2 mt-4 rounded-full" role="button">Jelajahi Tur</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Storytelling Section -->
+    <section id="storytelling" class="py-16 bg-[#F8F1E9] fade-in">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Kisah Lipa Saqbe & Pengrajin Mandar</h2>
+                <p class="mb-6">Pelajari sejarah tenun Mandar yang kaya, di mana setiap motif menceritakan keberanian pelaut dan keindahan budaya lokal. Dukung pengrajin kami!</p>
+                <a href="#" class="cta-button bg-[#800000] text-white px-6 py-3 rounded-full font-semibold" role="button">Baca Selengkapnya</a>
+            </div>
+            <div class="md:w-1/2 md:pl-8 mt-6 md:mt-0">
+                <img src="tenun.png" alt="Pengrajin Menenun" class="w-full rounded-lg" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section id="testimoni" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 fade-in">Apa Kata Pelanggan</h2>
+            <div id="testimonial-carousel" class="flex flex-col md:flex-row justify-center gap-6">
+                <div class="bg-[#F8F1E9] p-6 rounded-lg shadow-lg text-center max-w-sm">
+                    <p class="text-gray-600 italic">"Produk otentik, pengalaman luar biasa!"</p>
+                    <p class="mt-4 font-semibold">– Ani, Jakarta</p>
+                    <div class="text-[#FFD700] mt-2">★★★★★</div>
+                </div>
+                <div class="bg-[#F8F1E9] p-6 rounded-lg shadow-lg text-center max-w-sm hidden md:block">
+                    <p class="text-gray-600 italic">"Tur virtual sangat memukau, seperti berada di Mandar!"</p>
+                    <p class="mt-4 font-semibold">– Budi, Surabaya</p>
+                    <div class="text-[#FFD700] mt-2">★★★★★</div>
+                </div>
+            </div>
+            <div class="flex justify-center mt-4 space-x-2">
+                <button id="carousel-prev" class="p-2 rounded-full bg-[#1A3A6A] text-white" aria-label="Testimoni sebelumnya">◄</button>
+                <button id="carousel-next" class="p-2 rounded-full bg-[#1A3A6A] text-white" aria-label="Testimoni berikutnya">►</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#1A3A6A] text-white py-8 mandar-border">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">MandarKarya</h3>
+                    <p>Jelajahi budaya Mandar melalui kerajinan tenun otentik dan wisata virtual interaktif.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Kontak</h3>
+                    <p>Email: <a href="mailto:info@mandarkarya.id" class="hover:text-[#FFD700]">info@mandarkarya.id</a></p>
+                    <p>Telepon: <a href="tel:+62895333046852" class="hover:text-[#FFD700]">+62 895333046852</a></p>
+                    <p>Website: <a href="http://www.mandarkarya.id" target="_blank" class="hover:text-[#FFD700]">www.mandarkarya.id</a></p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Ikuti Kami</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="hover:text-[#FFD700] social-icon" aria-label="Instagram MandarKarya">
+                            <i class="fab fa-instagram fa-lg"></i>
+                        </a>
+                        <a href="#" class="hover:text-[#FFD700] social-icon" aria-label="TikTok MandarKarya">
+                            <i class="fab fa-tiktok fa-lg"></i>
+                        </a>
+                        <a href="#" class="hover:text-[#FFD700] social-icon" aria-label="YouTube MandarKarya">
+                            <i class="fab fa-youtube fa-lg"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <p class="text-center mt-8">© 2025 MandarKarya. Hak cipta dilindungi.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript untuk Interaktivitas -->
+    <script>
+        // Toggle Menu Mobile
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.setAttribute('aria-hidden', mobileMenu.classList.contains('hidden'));
+        });
+
+        mobileMenuClose.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            mobileMenu.setAttribute('aria-hidden', 'true');
+        });
+
+        // Modal Virtual Try-On
+        const arModalToggle = document.getElementById('ar-modal-toggle');
+        const arModalClose = document.getElementById('ar-modal-close');
+        const arModal = document.getElementById('ar-modal');
+
+        arModalToggle.addEventListener('click', () => {
+            arModal.classList.remove('hidden');
+            arModal.setAttribute('aria-hidden', 'false');
+        });
+
+        arModalClose.addEventListener('click', () => {
+            arModal.classList.add('hidden');
+            arModal.setAttribute('aria-hidden', 'true');
+        });
+
+        // Testimonial Carousel
+        const carouselPrev = document.getElementById('carousel-prev');
+        const carouselNext = document.getElementById('carousel-next');
+        const testimonials = document.querySelectorAll('#testimonial-carousel > div');
+        let currentIndex = 0;
+
+        function showTestimonial(index) {
+            testimonials.forEach((item, i) => {
+                item.classList.toggle('hidden', i !== index);
+            });
+        }
+
+        carouselNext.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % testimonials.length;
+            showTestimonial(currentIndex);
+        });
+
+        carouselPrev.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
+            showTestimonial(currentIndex);
+        });
+
+        // Fade-in on Scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fadeIn');
+                }
+            });
+        }, { threshold: 0.2 });
+
+        fadeElements.forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

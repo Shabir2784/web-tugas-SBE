@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Toko MandarKarya - Belanja kerajinan tenun Mandar otentik seperti Lipa Saqbe, baju adat, dan aksesori">
+    <meta name="keywords" content="tenun Mandar, Lipa Saqbe, baju adat, tas tenun, kriya otentik, Sulawesi Barat">
+    <meta name="author" content="MandarKarya">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Toko MandarKarya - Kerajinan Tenun Otentik">
+    <meta property="og:description" content="Temukan sarung sutra Lipa Saqbe, baju adat Mandar, dan aksesori tenun otentik dari Sulawesi Barat">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
+    <meta property="og:url" content="http://www.mandarkarya.id/shop">
+    <title>Toko MandarKarya - Kerajinan Tenun Otentik</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #F8F1E9;
+            scroll-behavior: smooth;
+        }
+        .mandar-pattern {
+            background-image: url('https://www.toptal.com/designers/subtlepatterns/patterns/moroccan-flower.png');
+            background-size: 100px;
+            opacity: 0.1;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        .mandar-border {
+            border: 2px solid transparent;
+            border-image: linear-gradient(45deg, #1A3A6A, #800000, #FFD700) 1;
+        }
+        .product-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        }
+        .cta-button {
+            transition: all 0.3s ease;
+        }
+        .cta-button:hover {
+            background-color: #FFD700;
+            color: #1A3A6A;
+            transform: scale(1.05);
+        }
+        .mobile-menu {
+            transition: transform 0.3s ease;
+        }
+        .mobile-menu.hidden {
+            transform: translateX(100%);
+        }
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .filter-button {
+            transition: all 0.3s ease;
+        }
+        .filter-button:hover {
+            background-color: #1A3A6A;
+            color: #FFD700;
+        }
+        .cert-icon::before {
+            content: '✔';
+            color: #FFD700;
+            margin-right: 4px;
+        }
+        .social-icon {
+            transition: transform 0.3s ease;
+        }
+        .social-icon:hover {
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body class="relative">
+    <div class="mandar-pattern"></div>
+
+    <!-- Header -->
+    <header class="bg-[#1A3A6A] text-white py-4 px-6 sticky top-0 z-50 shadow-lg mandar-border">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="logo1.png" alt="Logo MandarKarya" class="h-12 rounded-full">
+                <span class="ml-3 text-2xl font-bold">MandarKarya</span>
+            </div>
+            <nav class="hidden md:flex space-x-6" aria-label="Navigasi utama">
+                <a href="index.html" class="hover:text-[#FFD700] transition-colors">Beranda</a>
+                <a href="#toko" class="hover:text-[#FFD700] transition-colors font-bold">Toko</a>
+                <a href="wisata.html" class="hover:text-[#FFD700] transition-colors">Wisata</a>
+                <a href="tentang.html" class="hover:text-[#FFD700] transition-colors">Tentang</a>
+                <a href="blog.html" class="hover:text-[#FFD700] transition-colors">Blog</a>
+                <a href="login.html" class="hover:text-[#FFD700] transition-colors">Login</a>
+            </nav>
+            <button id="mobile-menu-toggle" class="md:hidden focus:outline-none" aria-label="Buka menu mobile">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <nav id="mobile-menu" class="mobile-menu hidden md:hidden fixed top-0 right-0 h-full w-3/4 bg-[#1A3A6A] text-white p-6 shadow-lg" aria-label="Menu mobile">
+            <button id="mobile-menu-close" class="mb-6 focus:outline-none" aria-label="Tutup menu mobile">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <ul class="space-y-4">
+                <li><a href="index.html" class="text-lg hover:text-[#FFD700]">Beranda</a></li>
+                <li><a href="#toko" class="text-lg hover:text-[#FFD700] font-bold">Toko</a></li>
+                <li><a href="wisata.html" class="text-lg hover:text-[#FFD700]">Wisata</a></li>
+                <li><a href="tentang.html" class="text-lg hover:text-[#FFD700]">Tentang</a></li>
+                <li><a href="blog.html" class="text-lg hover:text-[#FFD700]">Blog</a></li>
+                <li><a href="login.html" class="text-lg hover:text-[#FFD700]">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Shop Hero Section -->
+    <section id="shop-hero" class="py-16 bg-[#1A3A6A] text-white text-center fade-in">
+        <div class="container mx-auto px-6">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Toko Kerajinan Tenun Mandar</h1>
+            <p class="text-lg md:text-xl mb-6 max-w-2xl mx-auto">Belanja sarung sutra Lipa Saqbe, baju adat, dan aksesori otentik buatan pengrajin lokal Sulawesi Barat.</p>
+            <div class="max-w-md mx-auto">
+                <form class="flex items-center bg-white rounded-full p-2 shadow-lg" role="search">
+                    <input id="search-input" type="text" placeholder="Cari produk..." class="w-full px-4 py-2 text-gray-700 rounded-full focus:outline-none" aria-label="Cari produk">
+                    <button type="submit" class="bg-[#800000] text-white p-2 rounded-full" aria-label="Cari">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shop Filters -->
+    <section id="shop-filters" class="py-8 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4 fade-in">
+                <div class="flex flex-wrap gap-4">
+                    <button class="filter-button bg-[#F8F1E9] text-[#1A3A6A] px-4 py-2 rounded-full font-semibold" data-category="all">Semua</button>
+                    <button class="filter-button bg-[#F8F1E9] text-[#1A3A6A] px-4 py-2 rounded-full font-semibold" data-category="sarung">Sarung</button>
+                    <button class="filter-button bg-[#F8F1E9] text-[#1A3A6A] px-4 py-2 rounded-full font-semibold" data-category="baju">Baju Adat</button>
+                    <button class="filter-button bg-[#F8F1E9] text-[#1A3A6A] px-4 py-2 rounded-full font-semibold" data-category="aksesori">Aksesori</button>
+                </div>
+                <div>
+                    <select id="sort-select" class="bg-[#F8F1E9] text-[#1A3A6A] px-4 py-2 rounded-full font-semibold focus:outline-none">
+                        <option value="default">Urutkan: Default</option>
+                        <option value="price-low">Harga: Rendah ke Tinggi</option>
+                        <option value="price-high">Harga: Tinggi ke Rendah</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shop Products -->
+    <section id="shop-products" class="py-16 bg-[#F8F1E9] mandar-border">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 fade-in">Koleksi Kami</h2>
+            <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" itemscope itemtype="http://schema.org/Product">
+                <!-- Produk 1: Sarung Lipa Saqbe Sure -->
+                <div class="product-card bg-white rounded-lg shadow-lg overflow-hidden fade-in" data-category="sarung" data-price="300000" itemprop="item">
+                    <img src="sabe.jpg" alt="Sarung Lipa Saqbe Sure" class="w-full h-48 object-cover" loading="lazy" itemprop="image">
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold" itemprop="name">Sarung Lipa Saqbe Sure</h3>
+                        <p class="text-gray-600" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                            <span itemprop="priceCurrency" content="IDR">Rp</span>
+                            <span itemprop="price" content="300000">300.000</span>
+                        </p>
+                        <p class="text-sm text-gray-500 mt-2 cert-icon">Sertifikat Otentikasi Pengrajin</p>
+                        <p class="text-sm text-gray-600 mt-1 line-clamp-2">Motif Sure melambangkan keberanian pelaut Mandar.</p>
+                        <a href="#" class="cta-button block text-center bg-[#1A3A6A] text-white px-4 py-2 mt-4 rounded-full" role="button">Lihat Detail</a>
+                    </div>
+                </div>
+                <!-- Produk 2: Sarung Lipa Saqbe Passappe -->
+                <div class="product-card bg-white rounded-lg shadow-lg overflow-hidden fade-in" data-category="sarung" data-price="350000" itemprop="item">
+                    <img src="sabe2.jpg" alt="Sarung Lipa Saqbe Passappe" class="w-full h-48 object-cover" loading="lazy" itemprop="image">
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold" itemprop="name">Sarung Lipa Saqbe Passappe</h3>
+                        <p class="text-gray-600" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                            <span itemprop="priceCurrency" content="IDR">Rp</span>
+                            <span itemprop="price" content="350000">350.000</span>
+                        </p>
+                        <p class="text-sm text-gray-500 mt-2 cert-icon">Sertifikat Otentikasi Pengrajin</p>
+                        <p class="text-sm text-gray-600 mt-1 line-clamp-2">Motif Passappe mencerminkan harmoni alam Mandar.</p>
+                        <a href="#" class="cta-button block text-center bg-[#1A3A6A] text-white px-4 py-2 mt-4 rounded-full" role="button">Lihat Detail</a>
+                    </div>
+                </div>
+                <!-- Produk 3: Baju Bodo Mandar -->
+                <div class="product-card bg-white rounded-lg shadow-lg overflow-hidden fade-in" data-category="baju" data-price="1000000" itemprop="item">
+                    <img src="bodo.jpg" alt="Baju Bodo Mandar" class="w-full h-48 object-cover" loading="lazy" itemprop="image">
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold" itemprop="name">Baju Bodo Mandar</h3>
+                        <p class="text-gray-600" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                            <span itemprop="priceCurrency" content="IDR">Rp</span>
+                            <span itemprop="price" content="1000000">1.000.000</span>
+                        </p>
+                        <p class="text-sm text-gray-500 mt-2 cert-icon">Sertifikat Otentikasi Pengrajin</p>
+                        <p class="text-sm text-gray-600 mt-1 line-clamp-2">Pakaian adat wanita dengan sulaman tenun tradisional.</p>
+                        <a href="#" class="cta-button block text-center bg-[#1A3A6A] text-white px-4 py-2 mt-4 rounded-full" role="button">Lihat Detail</a>
+                    </div>
+                </div>
+                <!-- Produk 4: Jas Tutu Mandar -->
+                <div class="product-card bg-white rounded-lg shadow-lg overflow-hidden fade-in" data-category="baju" data-price="1200000" itemprop="item">
+                    <img src="jas.jpg" alt="Jas Tutu Mandar" class="w-full h-48 object-cover" loading="lazy" itemprop="image">
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold" itemprop="name">Jas Tutu Mandar</h3>
+                        <p class="text-gray-600" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                            <span itemprop="priceCurrency" content="IDR">Rp</span>
+                            <span itemprop="price" content="1200000">1.200.000</span>
+                        </p>
+                        <p class="text-sm text-gray-500 mt-2 cert-icon">Sertifikat Otentikasi Pengrajin</p>
+                        <p class="text-sm text-gray-600 mt-1 line-clamp-2">Pakaian adat pria dengan desain elegan.</p>
+                        <a href="#" class="cta-button block text-center bg-[#1A3A6A] text-white px-4 py-2 mt-4 rounded-full" role="button">Lihat Detail</a>
+                    </div>
+                </div>
+                <!-- Produk 5: Tas Tenun Mandar -->
+                <div class="product-card bg-white rounded-lg shadow-lg overflow-hidden fade-in" data-category="aksesori" data-price="150000" itemprop="item">
+                    <img src="tastenun.jpg" alt="Tas Tenun Mandar" class="w-full h-48 object-cover" loading="lazy" itemprop="image">
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold" itemprop="name">Tas Tenun Mandar</h3>
+                        <p class="text-gray-600" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                            <span itemprop="priceCurrency" content="IDR">Rp</span>
+                            <span itemprop="price" content="150000">150.000</span>
+                        </p>
+                        <p class="text-sm text-gray-500 mt-2 cert-icon">Sertifikat Otentikasi Pengrajin</p>
+                        <p class="text-sm text-gray-600 mt-1 line-clamp-2">Tas praktis dengan motif tenun otentik.</p>
+                        <a href="#" class="cta-button block text-center bg-[#1A3A6A] text-white px-4 py-2 mt-4 rounded-full" role="button">Lihat Detail</a>
+                    </div>
+                </div>
+                <!-- Produk 6: Ikat Kepala Tenun -->
+                <div class="product-card bg-white rounded-lg shadow-lg overflow-hidden fade-in" data-category="aksesori" data-price="100000" itemprop="item">
+                    <img src="ikat.jpg" alt="Ikat Kepala Tenun" class="w-full h-48 object-cover" loading="lazy" itemprop="image">
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold" itemprop="name">Ikat Kepala Tenun</h3>
+                        <p class="text-gray-600" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                            <span itemprop="priceCurrency" content="IDR">Rp</span>
+                            <span itemprop="price" content="100000">100.000</span>
+                        </p>
+                        <p class="text-sm text-gray-500 mt-2 cert-icon">Sertifikat Otentikasi Pengrajin</p>
+                        <p class="text-sm text-gray-600 mt-1 line-clamp-2">Aksesori tradisional untuk acara adat.</p>
+                        <a href="#" class="cta-button block text-center bg-[#1A3A6A] text-white px-4 py-2 mt-4 rounded-full" role="button">Lihat Detail</a>
+                    </div>
+                </div>
+                <!-- Produk 7: Sarung Custom Design -->
+                <div class="product-card bg-white rounded-lg shadow-lg overflow-hidden fade-in" data-category="sarung" data-price="500000" itemprop="item">
+                    <img src="saqbe.jpg" alt="Sarung Custom Design" class="w-full h-48 object-cover" loading="lazy" itemprop="image">
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold" itemprop="name">Sarung Custom Design</h3>
+                        <p class="text-gray-600" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                            <span itemprop="priceCurrency" content="IDR">Rp</span>
+                            <span itemprop="price" content="500000">500.000</span>
+                        </p>
+                        <p class="text-sm text-gray-500 mt-2 cert-icon">Sertifikat Otentikasi Pengrajin</p>
+                        <p class="text-sm text-gray-600 mt-1 line-clamp-2">Sarung dengan motif sesuai pesanan Anda.</p>
+                        <a href="#" class="cta-button block text-center bg-[#1A3A6A] text-white px-4 py-2 mt-4 rounded-full" role="button">Lihat Detail</a>
+                    </div>
+                </div>
+                <!-- Produk 8: Dompet Tenun Mandar -->
+                <div class="product-card bg-white rounded-lg shadow-lg overflow-hidden fade-in" data-category="aksesori" data-price="80000" itemprop="item">
+                    <img src="dompet.jpg" alt="Dompet Tenun Mandar" class="w-full h-48 object-cover" loading="lazy" itemprop="image">
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold" itemprop="name">Dompet Tenun Mandar</h3>
+                        <p class="text-gray-600" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                            <span itemprop="priceCurrency" content="IDR">Rp</span>
+                            <span itemprop="price" content="80000">80.000</span>
+                        </p>
+                        <p class="text-sm text-gray-500 mt-2 cert-icon">Sertifikat Otentikasi Pengrajin</p>
+                        <p class="text-sm text-gray-600 mt-1 line-clamp-2">Dompet kecil dengan desain tenun tradisional.</p>
+                        <a href="#" class="cta-button block text-center bg-[#1A3A6A] text-white px-4 py-2 mt-4 rounded-full" role="button">Lihat Detail</a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-8">
+                <button id="load-more" class="cta-button bg-[#800000] text-white px-6 py-3 rounded-full font-semibold">Muat Lebih Banyak</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#1A3A6A] text-white py-8 mandar-border">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">MandarKarya</h3>
+                    <p>Jelajahi budaya Mandar melalui kerajinan tenun otentik dan wisata virtual interaktif.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Kontak</h3>
+                    <p>Email: <a href="mailto:info@mandarkarya.id" class="hover:text-[#FFD700]">info@mandarkarya.id</a></p>
+                    <p>Telepon: <a href="tel:+62895333046852" class="hover:text-[#FFD700]">+62 895333046852</a></p>
+                    <p>Website: <a href="http://www.mandarkarya.id" target="_blank" class="hover:text-[#FFD700]">www.mandarkarya.id</a></p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Ikuti Kami</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="hover:text-[#FFD700] social-icon" aria-label="Instagram MandarKarya">
+                            <i class="fab fa-instagram fa-lg"></i>
+                        </a>
+                        <a href="#" class="hover:text-[#FFD700] social-icon" aria-label="TikTok MandarKarya">
+                            <i class="fab fa-tiktok fa-lg"></i>
+                        </a>
+                        <a href="#" class="hover:text-[#FFD700] social-icon" aria-label="YouTube MandarKarya">
+                            <i class="fab fa-youtube fa-lg"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <p class="text-center mt-8">© 2025 MandarKarya. Hak cipta dilindungi.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript untuk Interaktivitas -->
+    <script>
+        // Toggle Menu Mobile
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.setAttribute('aria-hidden', mobileMenu.classList.contains('hidden'));
+        });
+
+        mobileMenuClose.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            mobileMenu.setAttribute('aria-hidden', 'true');
+        });
+
+        // Filter Kategori Produk
+        const filterButtons = document.querySelectorAll('.filter-button');
+        const productCards = document.querySelectorAll('.product-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const category = button.getAttribute('data-category');
+                productCards.forEach(card => {
+                    if (category === 'all' || card.getAttribute('data-category') === category) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+                filterButtons.forEach(btn => btn.classList.remove('bg-[#1A3A6A]', 'text-[#FFD700]'));
+                button.classList.add('bg-[#1A3A6A]', 'text-[#FFD700]');
+            });
+        });
+
+        // Pencarian Produk
+        const searchInput = document.getElementById('search-input');
+        searchInput.addEventListener('input', () => {
+            const query = searchInput.value.toLowerCase();
+            productCards.forEach(card => {
+                const name = card.querySelector('h3').textContent.toLowerCase();
+                const description = card.querySelector('.text-gray-600.mt-1').textContent.toLowerCase();
+                if (name.includes(query) || description.includes(query)) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        });
+
+        // Pengurutan Harga
+        const sortSelect = document.getElementById('sort-select');
+        const productGrid = document.getElementById('product-grid');
+
+        sortSelect.addEventListener('change', () => {
+            const sortValue = sortSelect.value;
+            const cards = Array.from(productCards);
+            cards.sort((a, b) => {
+                const priceA = parseInt(a.getAttribute('data-price'));
+                const priceB = parseInt(b.getAttribute('data-price'));
+                if (sortValue === 'price-low') return priceA - priceB;
+                if (sortValue === 'price-high') return priceB - priceA;
+                return 0;
+            });
+            productGrid.innerHTML = '';
+            cards.forEach(card => productGrid.appendChild(card));
+        });
+
+        // Load More (Simulasi)
+        const loadMoreButton = document.getElementById('load-more');
+        loadMoreButton.addEventListener('click', () => {
+            alert('Fitur "Muat Lebih Banyak" akan segera tersedia!');
+        });
+
+        // Fade-in on Scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fadeIn');
+                }
+            });
+        }, { threshold: 0.2 });
+
+        fadeElements.forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

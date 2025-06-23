@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tentang MandarKarya - Pelajari visi, misi, dan pemberdayaan budaya Mandar melalui kerajinan dan wisata">
+    <meta name="keywords" content="MandarKarya, budaya Mandar, tenun Lipa Saqbe, pemberdayaan UMKM, wisata Sulawesi Barat">
+    <meta name="author" content="MandarKarya">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Tentang MandarKarya - Pelestarian Budaya Mandar">
+    <meta property="og:description" content="Ketahui lebih lanjut tentang misi kami untuk melestarikan budaya Mandar dan memberdayakan komunitas lokal">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1600585154348-be6161a56a0c">
+    <meta property="og:url" content="http://www.mandarkarya.id/tentang">
+    <title>Tentang MandarKarya - Pelestarian Budaya Mandar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #F8F1E9;
+            scroll-behavior: smooth;
+        }
+        .mandar-pattern {
+            background-image: url('https://www.toptal.com/designers/subtlepatterns/patterns/moroccan-flower.png');
+            background-size: 100px;
+            opacity: 0.1;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        .mandar-border {
+            border: 2px solid transparent;
+            border-image: linear-gradient(45deg, #1A3A6A, #800000, #FFD700) 1;
+        }
+        .team-card, .testimonial-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .team-card:hover, .testimonial-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        }
+        .cta-button {
+            transition: all 0.3s ease;
+        }
+        .cta-button:hover {
+            background-color: #FFD700;
+            color: #1A3A6A;
+            transform: scale(1.05);
+        }
+        .mobile-menu {
+            transition: transform 0.3s ease;
+        }
+        .mobile-menu.hidden {
+            transform: translateX(100%);
+        }
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .gallery-img {
+            transition: transform 0.3s ease;
+        }
+        .gallery-img:hover {
+            transform: scale(1.05);
+        }
+        .social-icon {
+            transition: transform 0.3s ease;
+        }
+        .social-icon:hover {
+            transform: scale(1.2);
+        }
+        .logo-sejarah {
+            max-width: 400px;
+            width: 100%;
+            height: auto;
+            border-radius: 0;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .sejarah-content {
+            margin-right: -20px; /* Geser konten ke kanan */
+        }
+        .sejarah-text {
+            padding-right: 20px; /* Tambah padding kanan untuk jarak dari kiri */
+            text-align: justify; /* Justify text */
+        }
+        @media (max-width: 768px) {
+            .logo-sejarah {
+                max-width: 300px;
+            }
+            .sejarah-content {
+                margin-right: -10px; /* Geser lebih sedikit di tablet */
+            }
+            .sejarah-text {
+                padding-right: 15px; /* Kurangi padding di tablet */
+                text-align: justify; /* Maintain justify on tablet */
+            }
+        }
+        @media (max-width: 640px) {
+            .logo-sejarah {
+                max-width: 200px;
+            }
+            .sejarah-content {
+                margin-right: 0; /* Tanpa geser di mobile untuk keseimbangan */
+            }
+            .sejarah-text {
+                padding-right: 0; /* Tanpa padding di mobile untuk keseimbangan */
+                text-align: justify; /* Maintain justify on mobile */
+            }
+        }
+    </style>
+</head>
+<body class="relative">
+    <div class="mandar-pattern"></div>
+
+    <!-- Header -->
+    <header class="bg-[#1A3A6A] text-white py-4 px-6 sticky top-0 z-50 shadow-lg mandar-border">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="logo1.png" alt="Logo MandarKarya" class="h-12 rounded-full">
+                <span class="ml-3 text-2xl font-bold">MandarKarya</span>
+            </div>
+            <nav class="hidden md:flex space-x-6" aria-label="Navigasi utama">
+                <a href="index.html" class="hover:text-[#FFD700] transition-colors">Beranda</a>
+                <a href="toko.html" class="hover:text-[#FFD700] transition-colors">Toko</a>
+                <a href="wisata.html" class="hover:text-[#FFD700] transition-colors">Wisata</a>
+                <a href="#tentang" class="hover:text-[#FFD700] transition-colors font-bold">Tentang</a>
+                <a href="blog.html" class="hover:text-[#FFD700] transition-colors">Blog</a>
+                <a href="login.html" class="hover:text-[#FFD700] transition-colors">Login</a>
+            </nav>
+            <button id="mobile-menu-toggle" class="md:hidden focus:outline-none" aria-label="Buka menu mobile">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <nav id="mobile-menu" class="mobile-menu hidden md:hidden fixed top-0 right-0 h-full w-3/4 bg-[#1A3A6A] text-white p-6 shadow-lg" aria-label="Menu mobile">
+            <button id="mobile-menu-close" class="mb-6 focus:outline-none" aria-label="Tutup menu mobile">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <ul class="space-y-4">
+                <li><a href="index.html" class="text-lg hover:text-[#FFD700]">Beranda</a></li>
+                <li><a href="toko.html" class="text-lg hover:text-[#FFD700]">Toko</a></li>
+                <li><a href="wisata.html" class="text-lg hover:text-[#FFD700]">Wisata</a></li>
+                <li><a href="#tentang" class="text-lg hover:text-[#FFD700] font-bold">Tentang</a></li>
+                <li><a href="blog.html" class="text-lg hover:text-[#FFD700]">Blog</a></li>
+                <li><a href="login.html" class="text-lg hover:text-[#FFD700]">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Tentang Hero Section -->
+    <section id="tentang-hero" class="py-16 bg-[#1A3A6A] text-white text-center fade-in">
+        <div class="container mx-auto px-6">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Tentang MandarKarya</h1>
+            <p class="text-lg md:text-xl mb-6 max-w-2xl mx-auto">Kami berdedikasi untuk melestarikan budaya Mandar melalui kerajinan tenun otentik dan pengalaman wisata interaktif, sambil memberdayakan komunitas lokal.</p>
+            <a href="#sejarah" class="cta-button inline-block bg-[#800000] text-white px-6 py-3 rounded-full font-semibold" role="button">Pelajari Lebih Lanjut</a>
+        </div>
+    </section>
+
+    <!-- Sejarah Section -->
+    <section id="sejarah" class="py-16 bg-[#F8F1E9] mandar-border">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 fade-in">Sejarah Kami</h2>
+            <div class="flex flex-col md:flex-row-reverse items-center gap-6 fade-in sejarah-content">
+                <div class="md:w-1/2 text-center">
+                    <img src="logont.png" alt="Logo MandarKarya dalam Sejarah" class="logo-sejarah mx-auto" loading="lazy">
+                </div>
+                <div class="md:w-1/2 sejarah-text">
+                    <p class="text-gray-600 mb-4">MandarKarya, didirikan pada 2025 di Polewali Mandar, bertujuan melestarikan budaya Mandar melalui tenun Lipa Saqbe. Kami menghidupkan motif tradisional seperti <em>Sure</em> (keberanian) dan <em>Passappe</em> (harmoni) bersama 50 pengrajin lokal, mayoritas perempuan dari desa.</p>
+                    <p class="text-gray-600 mb-4">Kami memberdayakan komunitas melalui pelatihan, alat tenun modern, dan akses pasar global. Lebih dari 100 motif tenun telah didokumentasikan, menggabungkan tradisi dan inovasi.</p>
+                    <p class="text-gray-600">Dengan platform e-commerce, tenun Mandar menjangkau pasar internasional. Kami juga menawarkan tur virtual 360° ke Pantai Palippis dan festival Sandeq, mempromosikan wisata berkelanjutan. Sebanyak 70% keuntungan kembali ke pengrajin untuk pendidikan dan kesehatan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visi Misi Section -->
+    <section id="visi-misi" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 fade-in">Visi & Misi</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="fade-in">
+                    <h3 class="text-2xl font-semibold text-[#1A3A6A] mb-4">Visi</h3>
+                    <p class="text-gray-600">Menjadi platform terdepan dalam pelestarian budaya Mandar dan pemberdayaan UMKM lokal, dengan jangkauan global melalui kerajinan otentik dan wisata interaktif.</p>
+                </div>
+                <div class="fade-in">
+                    <h3 class="text-2xl font-semibold text-[#1A3A6A] mb-4">Misi</h3>
+                    <ul class="text-gray-600 list-disc pl-5">
+                        <li>Mendokumentasikan dan mempromosikan motif tenun Mandar.</li>
+                        <li>Memberdayakan 50+ pengrajin lokal dengan pelatihan dan akses pasar.</li>
+                        <li>Menyediakan pengalaman wisata budaya melalui tur virtual dan paket wisata.</li>
+                        <li>Membangun ekosistem digital untuk UMKM dengan teknologi modern.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tim Kami Section -->
+    <section id="tim-kami" class="py-16 bg-[#F8F1E9] mandar-border">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 fade-in">Tim Kami</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                <!-- Anggota Tim 1 -->
+                <div class="team-card bg-white rounded-lg shadow-lg overflow-hidden fade-in">
+                    <img src="" alt="A. Rahmat Rafgali Raja" class="w-full h-48 object-cover" loading="lazy">
+                    <div class="p-4 text-center">
+                        <h3 class="text-xl font-semibold">A. Rahmat Rafgali Raja</h3>
+                        <p class="text-gray-600">Pendiri & CEO</p>
+                        <p class="text-sm text-gray-500 mt-2">Pencetus ide MandarKarya, berdedikasi untuk pelestarian budaya Mandar.</p>
+                    </div>
+                </div>
+                <!-- Anggota Tim 2 -->
+                <div class="team-card bg-white rounded-lg shadow-lg overflow-hidden fade-in">
+                    <img src="DSC01893.JPG" alt="Siti Aminah" class="w-full h-48 object-cover" loading="lazy">
+                    <div class="p-4 text-center">
+                        <h3 class="text-xl font-semibold">Futri Adriana Aksar</h3>
+                        <p class="text-gray-600">Kepala Pengrajin</p>
+                        <p class="text-sm text-gray-500 mt-2">Mengkoordinasikan 50 pengrajin untuk menghasilkan tenun otentik.</p>
+                    </div>
+                </div>
+                <!-- Anggota Tim 3 -->
+                <div class="team-card bg-white rounded-lg shadow-lg overflow-hidden fade-in">
+                    <img src="tim_hasan.jpg" alt="Hasan Basri" class="w-full h-48 object-cover" loading="lazy">
+                    <div class="p-4 text-center">
+                        <h3 class="text-xl font-semibold">Hasan Basri</h3>
+                        <p class="text-gray-600">Manajer Wisata</p>
+                        <p class="text-sm text-gray-500 mt-2">Merancang pengalaman wisata budaya dan tur virtual 360°.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dampak Sosial Section -->
+    <section id="dampak-sosial" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 fade-in">Dampak Sosial Kami</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                <div class="fade-in">
+                    <h3 class="text-2xl font-semibold text-[#1A3A6A] mb-2">50+</h3>
+                    <p class="text-gray-600">Pengrajin lokal yang diberdayakan melalui pelatihan dan akses pasar.</p>
+                </div>
+                <div class="fade-in">
+                    <h3 class="text-2xl font-semibold text-[#1A3A6A] mb-2">70%</h3>
+                    <p class="text-gray-600">Keuntungan kembali ke komunitas pengrajin untuk mendukung kesejahteraan.</p>
+                </div>
+                <div class="fade-in">
+                    <h3 class="text-2xl font-semibold text-[#1A3A6A] mb-2">100+</h3>
+                    <p class="text-gray-600">Motif tenun Mandar yang didokumentasikan untuk pelestarian budaya.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section id="testimonial" class="py-16 bg-[#F8F1E9] mandar-border">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 fade-in">Apa Kata Mereka</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card bg-white rounded-lg shadow-lg p-6 fade-in">
+                    <p class="text-gray-600 italic mb-4">"Produk tenun dari MandarKarya sangat otentik, dan saya suka cerita budaya di balik setiap motif!"</p>
+                    <p class="text-gray-800 font-semibold">Rina, Kolektor Kriya, Jakarta</p>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card bg-white rounded-lg shadow-lg p-6 fade-in">
+                    <p class="text-gray-600 italic mb-4">"Tur virtual ke Pantai Palippis sangat mengesankan, membuat saya ingin berkunjung langsung!"</p>
+                    <p class="text-gray-800 font-semibold">Andi, Wisatawan, Makassar</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeri Section -->
+    <section id="galeri" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 fade-in">Galeri Kami</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                <img src="tenun.png" alt="Proses Pembuatan Tenun" class="w-full h-48 object-cover rounded-lg gallery-img fade-in" loading="lazy">
+                <img src="sandeq.jpg" alt="Sandeq Race Festival" class="w-full h-48 object-cover rounded-lg gallery-img fade-in" loading="lazy">
+                <img src="pantai.jpg" alt="Pantai Palippis" class="w-full h-48 object-cover rounded-lg gallery-img fade-in" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#1A3A6A] text-white py-8 mandar-border">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">MandarKarya</h3>
+                    <p>Jelajahi budaya Mandar melalui kerajinan tenun otentik dan wisata virtual interaktif.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Kontak</h3>
+                    <p>Email: <a href="mailto:info@mandarkarya.id" class="hover:text-[#FFD700]">info@mandarkarya.id</a></p>
+                    <p>Telepon: <a href="tel:+62895333046852" class="hover:text-[#FFD700]">+62 895333046852</a></p>
+                    <p>Website: <a href="http://www.mandarkarya.id" target="_blank" class="hover:text-[#FFD700]">www.mandarkarya.id</a></p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Ikuti Kami</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="hover:text-[#FFD700] social-icon" aria-label="Instagram MandarKarya">
+                            <i class="fab fa-instagram fa-lg"></i>
+                        </a>
+                        <a href="#" class="hover:text-[#FFD700] social-icon" aria-label="TikTok MandarKarya">
+                            <i class="fab fa-tiktok fa-lg"></i>
+                        </a>
+                        <a href="#" class="hover:text-[#FFD700] social-icon" aria-label="YouTube MandarKarya">
+                            <i class="fab fa-youtube fa-lg"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <p class="text-center mt-8">© 2025 MandarKarya. Hak cipta dilindungi.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript untuk Interaktivitas -->
+    <script>
+        // Toggle Menu Mobile
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.setAttribute('aria-hidden', mobileMenu.classList.contains('hidden'));
+        });
+
+        mobileMenuClose.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            mobileMenu.setAttribute('aria-hidden', 'true');
+        });
+
+        // Fade-in on Scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fadeIn');
+                }
+            });
+        }, { threshold: 0.2 });
+
+        fadeElements.forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
